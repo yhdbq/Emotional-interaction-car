@@ -18,6 +18,7 @@
 #include "hi_uart.h"
 #include "hi_io.h"
 #include "hi_gpio.h"
+
 #include "stdbool.h"
 
 #include <unistd.h>
@@ -145,6 +146,22 @@ void voice_control_data(uint8_t *pstr)
         uart_send_control_status(CAR_STATUS_ON); // 打开电机
         systemValue.car_status = CAR_STATUS_ON;
         break;
+
+    //新增功能（跳舞、讲笑话、唱歌）
+    // case 0x09:
+    //     uart_send_control_cmd(CAR_STATUS_DANCE);
+    //     systemValue.car_status = CAR_STATUS_DANCE;
+    //     break;
+    // case 0x10:
+    //     uart_send_control_cmd(CAR_STATUS_SING);
+    //     systemValue.car_status = CAR_STATUS_SING;
+    //     break;
+    // case 0x11:
+    //     uart_send_control_cmd(CAR_STATUS_JOKES);
+    //     systemValue.car_status = CAR_STATUS_JOKES;
+    //     break;
+
+
     default:
         break;
     }
@@ -154,7 +171,6 @@ void voice_control_data(uint8_t *pstr)
 void uart2_recv_task(void)
 {
     hi_u8 uart_buff[20] = {0};
-
     hi_u8 last_len = 0;
     while (1)
     {

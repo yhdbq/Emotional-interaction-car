@@ -235,5 +235,6 @@ static void smartCar_example(void)
     if (udp_recv_task_id != NULL) {
         printf("ID = %d, Create udp_recv_task_id is OK!\r\n", udp_recv_task_id);
     }
+    
 }
 SYS_RUN(smartCar_example);

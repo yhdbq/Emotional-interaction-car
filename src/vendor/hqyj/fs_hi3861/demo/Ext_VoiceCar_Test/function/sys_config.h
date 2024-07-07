@@ -46,13 +46,18 @@ typedef struct _system_value {
     uint16_t right_motor_speed;      // 右电机的编码器值
     uint16_t battery_voltage;        // 电池当前电压值
     uint16_t distance;               // 距离传感器
+
     uint8_t auto_abstacle_flag;      // 是否开启避障功能
+    uint8_t fan_flag;                // 是否开启风扇
+    uint8_t voice_control_flag;      // 是否开启语音控制功能
+    uint8_t led_flag;                // 是否开启led灯功能  
+
     int udp_socket_fd;          // UDP通信的套接字
 } system_value_t;
 extern system_value_t systemValue; // 系统全局变量
 
 extern tn_pcf8574_io_t pcf8574_io;
-#define IO_FAN pcf8574_io.bit.p0
+#define IO_FAN pcf8574_io.bit.p0    //
 #define IO_BUZZER pcf8574_io.bit.p1
 #define IO_LED pcf8574_io.bit.p2
 

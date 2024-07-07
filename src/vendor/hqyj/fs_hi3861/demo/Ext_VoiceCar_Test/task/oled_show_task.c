@@ -145,11 +145,11 @@ void oled_show_task(void)
             set_buzzer(false); // 关闭蜂鸣器
         }
 
-        // if (!(t_times % COEFFICIENT_5)) {
-        //     // 500ms    系统状态指示灯
-        //     led_status ^= 0x01;
-        //      led_status ? set_led(true) : set_led(false);
-        // }
+        if (!(t_times % COEFFICIENT_5)) {
+            // 500ms    系统状态指示灯
+            led_status ^= 0x01;
+             led_status ? set_led(true) : set_led(false);
+        }
         t_times++;
         usleep(OLED_SHOW_TASK_TIME);
     }
